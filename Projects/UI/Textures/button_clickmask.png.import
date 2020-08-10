@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/button_clickmask.png-545ac527052ec49cdccb40b20eff5310.res"
+
+[deps]
+
+source_file="res://Textures/button_clickmask.png"
+dest_files=[ "res://.import/button_clickmask.png-545ac527052ec49cdccb40b20eff5310.res" ]
+
+[params]
+
+create_from=0
+threshold=0.5
