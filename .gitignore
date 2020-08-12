@@ -3,7 +3,9 @@
 .import/
 export.cfg
 export_presets.cfg
+addons/
 [Ee]xport/
+
 
 # Mono-specific ignores
 .mono/

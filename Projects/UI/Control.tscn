@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Controls/Buttons/StandardButton.gd" type="Script" id=1]
 [ext_resource path="res://Controls/Buttons/CheckBox.gd" type="Script" id=2]
@@ -17,6 +17,11 @@
 [ext_resource path="res://Controls/ItemList/ItemList.gd" type="Script" id=15]
 [ext_resource path="res://Controls/Tree/Tree.gd" type="Script" id=16]
 [ext_resource path="res://Controls/Tree/TreeButton.gd" type="Script" id=17]
+[ext_resource path="res://Controls/Grid/GridGenerator.gd" type="Script" id=18]
+[ext_resource path="res://Controls/Grid/Buttons/DecreaseRows.gd" type="Script" id=19]
+[ext_resource path="res://Controls/Grid/Buttons/IncreaseCols.gd" type="Script" id=20]
+[ext_resource path="res://Controls/Grid/Buttons/IncreaseRows.gd" type="Script" id=21]
+[ext_resource path="res://Controls/Grid/Buttons/DecreaseCols.gd" type="Script" id=22]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -273,31 +278,33 @@ margin_left = 32.0
 margin_top = -108.0
 margin_right = 480.0
 margin_bottom = 84.0
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit" type="LineEdit" parent="TextInput"]
+[node name="OutputButton" type="Button" parent="TextInput"]
 margin_right = 448.0
-margin_bottom = 24.0
+margin_bottom = 20.0
+text = "You wrote..."
+script = ExtResource( 13 )
+
+[node name="LineEdit" type="LineEdit" parent="TextInput"]
+margin_top = 20.0
+margin_right = 448.0
+margin_bottom = 44.0
 text = "LineEdit Node."
 
 [node name="TextEdit" type="TextEdit" parent="TextInput"]
-margin_top = 28.0
+margin_top = 44.0
 margin_right = 448.0
-margin_bottom = 168.0
+margin_bottom = 192.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "TextEdit Node."
 highlight_current_line = true
-
-[node name="Button" type="Button" parent="TextInput"]
-margin_top = 172.0
-margin_right = 448.0
-margin_bottom = 192.0
-text = "You wrote..."
-script = ExtResource( 13 )
 
 [node name="ItemList" type="GridContainer" parent="."]
 anchor_left = 1.0
@@ -308,6 +315,8 @@ margin_left = -480.0
 margin_top = -108.0
 margin_right = -32.0
 margin_bottom = 84.0
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -318,6 +327,8 @@ margin_right = 448.0
 margin_bottom = 192.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
 fixed_icon_size = Vector2( 64, 64 )
 script = ExtResource( 15 )
 
@@ -328,6 +339,8 @@ margin_left = 32.0
 margin_top = 84.0
 margin_right = 480.0
 margin_bottom = 276.0
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -335,15 +348,15 @@ __meta__ = {
 
 [node name="TreeView" type="Tree" parent="Tree"]
 margin_right = 448.0
-margin_bottom = 144.0
+margin_bottom = 152.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 16 )
 
 [node name="TreeButton" type="Button" parent="Tree"]
-margin_top = 148.0
+margin_top = 152.0
 margin_right = 448.0
-margin_bottom = 168.0
+margin_bottom = 172.0
 text = "Traverse Tree"
 script = ExtResource( 17 )
 
@@ -352,3 +365,83 @@ margin_top = 172.0
 margin_right = 448.0
 margin_bottom = 192.0
 text = "Reset Tree"
+
+[node name="InstancedGrid" type="GridContainer" parent="."]
+margin_left = 544.0
+margin_top = 384.0
+margin_right = 992.0
+margin_bottom = 576.0
+custom_constants/vseparation = 0
+custom_constants/hseparation = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RowNumber" type="HBoxContainer" parent="InstancedGrid"]
+margin_right = 448.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="DecreaseRows" type="Button" parent="InstancedGrid/RowNumber"]
+margin_right = 222.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 7
+size_flags_vertical = 5
+text = "Decrease Row No."
+script = ExtResource( 19 )
+
+[node name="IncreaseRows" type="Button" parent="InstancedGrid/RowNumber"]
+margin_left = 226.0
+margin_right = 448.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 7
+size_flags_vertical = 5
+text = "Increase Row No."
+script = ExtResource( 21 )
+
+[node name="Grid" type="Container" parent="InstancedGrid"]
+margin_top = 32.0
+margin_right = 448.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColumnNumber" type="HBoxContainer" parent="InstancedGrid"]
+margin_top = 160.0
+margin_right = 448.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 0, 32 )
+rect_clip_content = true
+size_flags_horizontal = 3
+alignment = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="DecreaseCols" type="Button" parent="InstancedGrid/ColumnNumber"]
+margin_right = 222.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 7
+size_flags_vertical = 5
+text = "Decrease Column No."
+script = ExtResource( 22 )
+
+[node name="IncreaseCols" type="Button" parent="InstancedGrid/ColumnNumber"]
+margin_left = 226.0
+margin_right = 448.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 7
+size_flags_vertical = 5
+text = "Increase Column No."
+script = ExtResource( 20 )

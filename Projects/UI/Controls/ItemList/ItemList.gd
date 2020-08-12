@@ -1,12 +1,15 @@
 extends ItemList
 
+# Set HSeparation and VSeparation to 0 (enable the properties) in:
+# ItemList > Control > Custom Constants
+
 var icon_texture = preload("res://Textures/ItemListIcon.png")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.connect("item_selected", self, "_item_selected")
-	var width = int(get_parent().rect_size[0])
-	var height = int(get_parent().rect_size[1])
+	var width = int(self.rect_size[0])
+	var height = int(self.rect_size[1])
 	if width % 64 == 0:
 		max_columns = width / 64
 		for _i in range(height / 64):
