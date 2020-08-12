@@ -1,8 +1,6 @@
 extends Container
 
 """NOTES:
-- SCALE DOES NOT WORK AT THE MOMENT!
-- Calculate height based off of scale (itemSize) and columns.
 - Use an object pooling system in place of queue_free().
 """
 
