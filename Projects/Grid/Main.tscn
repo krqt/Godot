@@ -1,0 +1,141 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://addons/StaticGrid/Grid/StaticGrid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/StaticGrid/Item/Item.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/StaticGrid/Buttons/IncreaseCols.gd" type="Script" id=3]
+[ext_resource path="res://addons/StaticGrid/Buttons/DecreaseCols.gd" type="Script" id=4]
+[ext_resource path="res://addons/StaticGrid/Buttons/IncreaseRows.gd" type="Script" id=5]
+[ext_resource path="res://addons/StaticGrid/Buttons/DecreaseRows.gd" type="Script" id=6]
+[ext_resource path="res://addons/StaticGrid/Buttons/Generate.gd" type="Script" id=7]
+[ext_resource path="res://ExitButton.gd" type="Script" id=8]
+
+[node name="Main" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Control" type="Control" parent="."]
+margin_right = 800.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Control"]
+anchor_right = 1.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Grid Example"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="Button" parent="Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -32.0
+margin_bottom = 32.0
+action_mode = 0
+text = "X"
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="RowButtons" type="HBoxContainer" parent="Control"]
+anchor_right = 1.0
+margin_top = 64.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 64 )
+size_flags_horizontal = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="DecreaseRows" type="Button" parent="Control/RowButtons"]
+margin_right = 400.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+text = "Decrease Rows"
+script = ExtResource( 6 )
+
+[node name="IncreaseRows" type="Button" parent="Control/RowButtons"]
+margin_left = 400.0
+margin_right = 800.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+text = "Increase Rows"
+script = ExtResource( 5 )
+
+[node name="ColButtons" type="HBoxContainer" parent="Control"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -88.0
+margin_bottom = -24.0
+rect_min_size = Vector2( 0, 64 )
+size_flags_horizontal = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="DecreaseCols" type="Button" parent="Control/ColButtons"]
+margin_right = 400.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+text = "Decrease Columns"
+script = ExtResource( 4 )
+
+[node name="IncreaseCols" type="Button" parent="Control/ColButtons"]
+margin_left = 400.0
+margin_right = 800.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+text = "Increase Columns"
+script = ExtResource( 3 )
+
+[node name="Grid" parent="Control" instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -384.0
+margin_top = -172.0
+margin_right = 384.0
+margin_bottom = 212.0
+scene = ExtResource( 2 )
+
+[node name="Generate" type="Control" parent="Control"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -24.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GenerateButton" type="Button" parent="Control/Generate"]
+margin_top = 2.0
+margin_right = 800.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Generate Grid"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

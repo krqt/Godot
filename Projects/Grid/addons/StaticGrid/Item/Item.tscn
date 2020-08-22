@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/StaticGrid/Item/Sprite.gd" type="Script" id=1]
+[ext_resource path="res://addons/StaticGrid/Item/ItemIcon.png" type="Texture" id=2]
+
+[node name="Item" type="Node2D"]
+__meta__ = {
+"_editor_description_": "A square (1:1 aspect ratio) grid item."
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "Grid item's sprite."
+}
