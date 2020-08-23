@@ -16,8 +16,20 @@ _global_script_class_icons={
 [application]
 
 config/name="Titlebar"
+config/description="Custom Titlebar example for Godot projects in a borderless window."
+run/main_scene="res://Main.tscn"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/size/resizable=false
+window/size/borderless=true
+window/stretch/aspect="keep_width"
 
 [rendering]
 
+environment/default_clear_color=Color( 0.501961, 0.501961, 0.501961, 1 )
 environment/default_environment="res://default_env.tres"
