@@ -7,7 +7,6 @@ onready var label = $Titlebar.get_node("TitleRect/CenterContainer/Title")
 
 var dragging = false
 var start_position = Vector2()
-var test = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
