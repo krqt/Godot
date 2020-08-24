@@ -44,5 +44,6 @@ func _on_MinimizeButton_pressed() -> void:
 func _on_QuitButton_pressed() -> void:
 	get_tree().quit()
 
+# Check if mouse position vector is in the bounds of Titlebar's TitleRect node.
 func _in_rect_bounds(pos: Vector2):
 	return pos.y <= get_rect().size.y and pos.x >= titlerect.rect_position.x and pos.x <= titlerect.get_rect().size.x
