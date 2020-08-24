@@ -15,7 +15,7 @@ func _ready() -> void:
 # Debug logging.
 func _input(event) -> void:
 	if event is InputEventMouseButton:
-		if event.get_button_index() == 1:
+		if event.get_button_index() == 1 and event.position.y <= get_rect().size.y:
 			dragging = !dragging
 			start_position = get_local_mouse_position()
 
