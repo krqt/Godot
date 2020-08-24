@@ -19,8 +19,6 @@ func _input(event) -> void:
 		if event.get_button_index() == 1:
 			dragging = !dragging
 			start_position = get_local_mouse_position()
-			print(dragging)
-			print(start_position)
 
 	# Print statistics if debug is enabled.
 	if debug:
@@ -36,14 +34,13 @@ func _input(event) -> void:
 		print("Viewport Resolution is: ", get_viewport_rect().size)
 		print("Viewport Position is: ", OS.window_position)
 
-func _process(_delta):
+func _process(_delta) -> void:
 	if dragging:
 		OS.set_window_position(OS.window_position + get_global_mouse_position() - start_position)
-		print("yes")
 
-func _on_MinimizeButton_pressed():
+func _on_MinimizeButton_pressed() -> void:
 	OS.set_window_minimized(true)
 
-func _on_QuitButton_pressed():
+func _on_QuitButton_pressed() -> void:
 	get_tree().quit()
 
