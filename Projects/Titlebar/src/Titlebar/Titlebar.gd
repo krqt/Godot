@@ -3,7 +3,8 @@ extends Control
 export var title_text = "Titlebar"
 export(bool) var debug = false
 
-onready var label = $Titlebar.get_node("TitleRect/CenterContainer/Title")
+onready var titlerect = $Titlebar.get_node("TitleRect")
+onready var label = titlerect.get_node("CenterContainer/Title")
 
 var dragging = false
 var start_position = Vector2()
@@ -15,7 +16,7 @@ func _ready() -> void:
 # Debug logging.
 func _input(event) -> void:
 	if event is InputEventMouseButton:
-		if event.get_button_index() == 1 and event.position.y <= get_rect().size.y:
+		if event.get_button_index() == 1 and _in_rect_bounds(event.position):
 			dragging = !dragging
 			start_position = get_local_mouse_position()
 
@@ -43,3 +44,5 @@ func _on_MinimizeButton_pressed() -> void:
 func _on_QuitButton_pressed() -> void:
 	get_tree().quit()
 
+func _in_rect_bounds(pos: Vector2):
+	return pos.y <= get_rect().size.y and pos.x >= titlerect.rect_position.x and pos.x <= titlerect.get_rect().size.x
