@@ -13,8 +13,8 @@ var start_position = Vector2()
 func _ready() -> void:
 	label.text = title_text
 
-# Debug logging.
 func _input(event) -> void:
+	# On click/release of mouse button #1.
 	if event is InputEventMouseButton:
 		if event.get_button_index() == 1 and _in_rect_bounds(event.position):
 			dragging = !dragging
